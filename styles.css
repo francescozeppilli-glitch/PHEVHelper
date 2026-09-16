@@ -52,6 +52,17 @@ nav { display: flex; gap: 18px; }
 nav a { color: var(--muted); text-decoration: none; }
 nav a[aria-current="page"] { color: var(--green); }
 
+.language-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: -18px 0 22px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.language-nav a { text-decoration: none; }
+
 .hero,
 .card,
 details {
@@ -83,6 +94,13 @@ h1 {
 .lead { max-width: 66ch; color: var(--muted); font-size: 1.08rem; }
 .updated { margin-bottom: 0; color: var(--muted); font-size: 0.9rem; }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 .card { padding: clamp(20px, 5vw, 32px); margin-top: 16px; }
 h2 { margin: 0 0 10px; font-size: 1.35rem; }
 h3 { margin: 24px 0 6px; font-size: 1.05rem; }
@@ -94,6 +112,76 @@ li + li { margin-top: 8px; }
   border-left: 4px solid var(--green);
   background: rgba(49, 211, 107, 0.08);
 }
+
+.language-section { scroll-margin-top: 20px; }
+.language-section + .language-section { margin-top: 38px; }
+
+.language-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.feature {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface-soft);
+}
+
+.feature-icon { font-size: 1.6rem; }
+.feature h3 { margin-top: 10px; }
+
+.steps {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: steps;
+}
+
+.steps li {
+  position: relative;
+  min-height: 42px;
+  padding-left: 48px;
+  counter-increment: steps;
+}
+
+.steps li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(49, 211, 107, 0.15);
+  color: var(--green);
+  content: counter(steps);
+  font-weight: 800;
+}
+
+.secondary-button {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.secondary-button:hover { background: var(--surface-soft); color: var(--text); }
 
 .button {
   display: inline-block;
@@ -121,4 +209,6 @@ footer {
 @media (max-width: 560px) {
   header { align-items: flex-start; flex-direction: column; }
   nav { width: 100%; justify-content: space-between; }
+  .language-nav { justify-content: flex-start; margin-top: -12px; }
+  .feature-grid { grid-template-columns: 1fr; }
 }
